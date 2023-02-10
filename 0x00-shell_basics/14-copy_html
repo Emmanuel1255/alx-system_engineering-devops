@@ -1,0 +1,8 @@
+#!/bin/bash
+
+parent_dir=$(dirname "$PWD")
+for html_file in *.html; do
+  if [ ! -f "$parent_dir/$html_file" ] || [ "$html_file" -nt "$parent_dir/$html_file" ]; then
+    cp "$html_file" "$parent_dir/$html_file"
+  fi
+done
